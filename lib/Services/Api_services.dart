@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-
+  static const String apiKey =
+    
   static Future<String> sendMessage(
     String message, {
     File? image,

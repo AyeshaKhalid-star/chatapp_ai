@@ -172,7 +172,7 @@ class ChatViewModel extends ChangeNotifier {
 
   // ================= IMAGE PICK =================
   Future<void> pickImage(ImageSource source) async {
-    final image =  await picker.pickImage(source: source);
+    final image = await picker.pickImage(source: source);
 
     if (image == null) return;
 
@@ -184,7 +184,7 @@ class ChatViewModel extends ChangeNotifier {
   Future<void> pickDocument() async {
     final result = await FilePicker.platform.pickFiles();
 
-    if (result == null || result.files.single.path== null) return;
+    if (result == null || result.files.single.path == null) return;
 
     selectedDocument = File(result.files.single.path!);
     selectedDocumentName = result.files.single.name;
@@ -242,35 +242,6 @@ class ChatViewModel extends ChangeNotifier {
     }
   }
 
-  // // =========================
-  // // PICK IMAGE
-  // // =========================
-  // Future<void> pickImage(ImageSource source) async {
-  //   final XFile? image = await picker.pickImage(
-  //     source: source,
-  //     imageQuality: 80,
-  //   );
-
-  //   if (image == null) return;
-
-  //   selectedImage = File(image.path);
-  //   notifyListeners();
-  // }
-
-  // // =========================
-  // // PICK DOCUMENT
-  // // =========================
-  // Future<void> pickDocument() async {
-  //   final result = await FilePicker.platform.pickFiles();
-
-  //   if (result == null || result.files.single.path == null) return;
-
-  //   selectedDocument = File(result.files.single.path!);
-  //   selectedDocumentName = result.files.single.name;
-
-  //   notifyListeners();
-  // }
-
   void removeImage() {
     selectedImage = null;
     notifyListeners();
@@ -281,32 +252,4 @@ class ChatViewModel extends ChangeNotifier {
     selectedDocumentName = null;
     notifyListeners();
   }
-
-  // void clearChat() {
-  //   messages.clear();
-
-  //   messages.add(
-  //     MessageModel(
-  //       isUser: false,
-  //       history: ["Hello! How can I help you today?"],
-  //     ),
-  //   );
-
-  //   notifyListeners();
-  // }
-
-  //   void clearAttachment() {
-  //   selectedImage = null;
-  //   selectedDocument = null;
-  //   selectedDocumentName = null;
-  //   notifyListeners();
-  // }
-
-  // // -----------------------------
-  // // DELETE MESSAGE
-  // // -----------------------------
-  // void deleteMessage(int index) {
-  //   messages.removeAt(index);
-  //   notifyListeners();
-  // }
 }
